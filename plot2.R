@@ -31,11 +31,15 @@ data <- data %>%
 
 ## Make Plot 2
 
-with(data,
-     plot(Timestamp, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
+plot2 <- function() {
+  par(mfrow = c(1,1), mar = c(5.1, 4.1, 4.1, 2.1))
+  with(data,
+       plot(Timestamp, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
+}
 
+plot2()
 ## Make the PNG file too.
 
 png(filename = "plot2.png", height = 480, width = 480)
-with(data, plot(Timestamp, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
+plot2()
 dev.off()

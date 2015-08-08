@@ -30,11 +30,14 @@ data <- data %>%
 
 
 ## Make Plot 1
+plot1 <- function() {
+  par(mfrow = c(1,1), mar = c(5.1, 4.1, 4.1, 2.1))
+  with(data, hist(Global_active_power, col = "Red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)", breaks = 15))
+}
 
-with(data, hist(Global_active_power, col = "Red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)", breaks = 15))
-
+plot1()
 ## Make the PNG file too.
 
 png(filename = "plot1.png", height = 480, width = 480)
-with(data, hist(Global_active_power, col = "Red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)", breaks = 15))
+plot1()
 dev.off()
